@@ -90,8 +90,77 @@
     </a>
     <% }) %> <% } %>
   </div>
+
+<!-- category:/thai -->
+<div class="d-flex mb-2 mt-4 align-items-center">
+    <h2>Thai</h2>
+    <a href="/categories/Thai" class="ms-auto"> View More </a>
+</div>
+
+<!-- recipe card -->
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(food !='' ){ %>
+        <%food.thai.forEach(function(recipe, index){ %>
+            <a href="/recipe/<%= recipe._Id %>" class="col text-center category__link">
+                <div class="category__img category__img--large shadow">
+                    <img src="uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy" />
+                </div>
+                <div class="pt-1">
+                    <%= recipe.name %>
+                </div>
+            </a>
+            <% }) %>
+                <% } %>
+</div>
+
+<!-- category:/american -->
+<div class="d-flex mb-2 mt-4 align-items-center">
+    <h2>American</h2>
+    <a href="/categories/American" class="ms-auto"> View More </a>
+</div>
+
+<!-- recipe card -->
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(food !='' ){ %>
+        <%food.american.forEach(function(recipe, index){ %>
+            <a href="/recipe/<%= recipe._Id %>" class="col text-center category__link">
+                <div class="category__img category__img--large shadow">
+                    <img src="uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy" />
+                </div>
+                <div class="pt-1">
+                    <%= recipe.name %>
+                </div>
+            </a>
+            <% }) %>
+                <% } %>
+</div>
+
+<!-- category:/chinese -->
+<div class="d-flex mb-2 mt-4 align-items-center">
+    <h2>Chinese</h2>
+    <a href="/categories/Chinese" class="ms-auto"> View More </a>
+</div>
+
+<!-- recipe card -->
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(food !='' ){ %>
+        <%food.chinese.forEach(function(recipe, index){ %>
+            <a href="/recipe/<%= recipe._Id %>" class="col text-center category__link">
+                <div class="category__img category__img--large shadow">
+                    <img src="uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy" />
+                </div>
+                <div class="pt-1">
+                    <%= recipe.name %>
+                </div>
+            </a>
+            <% }) %>
+                <% } %>
+</div>
 </section>
 <!-- Latest Recipe End -->
+
+
+
 
 <!-- Submit CTA -->
 <section class="px-4 py-5 my-5 text-center">

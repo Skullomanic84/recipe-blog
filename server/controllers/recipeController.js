@@ -11,12 +11,19 @@ exports.homepage = async(req, res) => {
    try {
       
       const limitNumber = 5;
-      const catLimit = 15;
       const categories = await Category.find({}).limit(limitNumber);
       
-      const latest = await Recipe.find({}).sort({_id: -1 }).limit(catLimit);
+      const latest = await Recipe.find({}).sort({_id: -1 }).limit(limitNumber);
 
-      const food = { latest }
+      // category count display
+      const thai = await Recipe.find({'category': 'Thai'}).limit(limitNumber);
+       const american = await Recipe.find({ category: "American" }).limit(
+         limitNumber
+       );
+       const chinese = await Recipe.find({ category: "Chinese" }).limit(
+         limitNumber
+       );
+      const food = { latest, thai, american, chinese }
 
       res.render("index", { title: "Home - Cooked with love", categories, food }); 
    } catch (error) {
