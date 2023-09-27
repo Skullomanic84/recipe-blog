@@ -52,3 +52,47 @@ exports.exploreCategories = async (req, res) => {
 };
 
 
+
+/***
+ * GET /catergories:/:id
+ * Categories by id
+ */
+
+
+exports.exploreCategoriesById = async (req, res) => {
+  try {
+    let categoryId = req.params.id;
+    const limitNumber = 20;
+    const categoryById = await Recipe.find({ category: categoryId }).limit(
+      limitNumber
+    );
+
+    res.render("categories", {
+      title: "Cooking Blog - Cooked with love",
+      categoryById,
+    });
+  } catch (error) {
+    res.status(500).send({ message: error.message || "Error Occured" });
+  }
+};
+
+
+/***
+ * GET /recipes/:id
+ * Recipe
+ */
+
+
+exports.exploreRecipe = async (req, res) => {
+  try {
+    let recipeId = req.params.id;
+
+    const recipe = await Recipe.findById(recipeId);
+
+    res.render("recipe", { title: "Categories - Cooked with love", recipe });
+  } catch (error) {
+    res.status(500).send({ message: error.message || "Error Occured" });
+  }
+};
+
+
