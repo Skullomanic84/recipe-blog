@@ -23,6 +23,7 @@ exports.homepage = async(req, res) => {
        const chinese = await Recipe.find({ category: "Chinese" }).limit(
          limitNumber
        );
+       
       const food = { latest, thai, american, chinese }
 
       res.render("index", { title: "Home - Cooked with love", categories, food }); 
